@@ -5,6 +5,11 @@
 ## Homework #5 (Programming Assignment 3)
 ## Markov Decision Processes
 
+## Note about varying the value of epsilon:
+# Changing the value of epsilon did not create a different path or give significantly 
+# different utility values. The utility sum was approximately 237 each time. The values 
+# of epsilon tested were 0, 0.1, 0.2, ..., 0.8, 0.9, 1.0
+
 import sys 
 
 # Command line input:
@@ -65,7 +70,8 @@ for i in range(0, rows):
 	StateArray.append(thisrow)			
 
 
-# Create functions that return the new utility or 0 if there is a wall
+# Create functions that return the new utility or 0 if there is a wall. 
+# Visit property is used for determining the final path
 def UpMove(row, col):
 	if row == 0:
 		return 0.0
@@ -132,7 +138,7 @@ while delta > Epsilon*(1-gamma)/gamma:
 # Collect results and print output
 
 thisStateRow = rows-1 # starting row
-thisStateCol = 0 # starting row
+thisStateCol = 0 # starting col
 
 Path = [[thisStateRow, thisStateCol]]
 UtilityPath = StateArray[thisStateRow][thisStateCol].utility
