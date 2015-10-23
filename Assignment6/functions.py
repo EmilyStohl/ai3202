@@ -56,19 +56,16 @@ class BayesNet:
 			i = CondList.pop()
 			Var = self.ReturnLetter(i)
 			
-			print Var
-			print(CondList)
 
 			Prod = Prod*self.Cond(Var, CondList)
-			print(self.Cond(Var, CondList))
+
 			
 	def Cond(self, VarLetter, CondList):
 		if CondList == []:
 			return self.BNet[VarLetter].prob
-		for parent in self.BNet[VarLetter].parents:
-			if parent in CondList:
-				print"CWorks"
-				return 1.0
+		if VarLetter == 'C':
+			pass
+
 		return 1.0
 			
 
@@ -127,7 +124,12 @@ class BayesNet:
 			print("Variable " + a + " not found")
 		
 			
-
+	def calcJoint(self, a):
+		ArgList = []
+		for i in a:
+			ArgList.append(i)
+		
+		return
 		
 			    
 			    

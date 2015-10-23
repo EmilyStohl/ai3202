@@ -32,9 +32,8 @@ def main():
 			# Instead use "/" to represent "|" ex: -gc/s calculates P(c | s)
 			p = a.find("/")
 			BNet.calcConditional(a[:p], a[p+1:])
-		elif o in ("-j"):
-			print "flag", o
-			print "args", a
+		elif o in ("-j"):				
+			BNet.calcJoint(a)
 		else:
 			assert False, "unhandled option"
 		
